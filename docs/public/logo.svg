@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="jpGrad" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#0f172a" stroke="url(#jpGrad)" stroke-width="3" />
+  <path d="M32 14L44 26L38 26L38 40L26 40L26 26L20 26L32 14Z" fill="url(#jpGrad)" />
+  <path d="M24 44H40L36 52H28L24 44Z" fill="#38bdf8" opacity="0.9" />
+</svg>
