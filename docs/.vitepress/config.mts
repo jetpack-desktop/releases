@@ -12,7 +12,8 @@ export default defineConfig({
   appearance: true,
 
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
+    ['link', { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    ['link', { rel: 'icon', type: 'image/webp', href: '/logo.webp' }],
     ['meta', { name: 'theme-color', content: '#6366f1' }],
   ],
 
@@ -26,7 +27,7 @@ export default defineConfig({
 
   themeConfig: {
     siteTitle: 'JetPack',
-    logo: '/logo.svg',
+    logo: '/logo.webp',
 
     search: {
       provider: 'local',

@@ -1,3 +1,7 @@
+<p align="left">
+  <img src="./public/logo.webp" alt="JetPack Logo" width="56" height="56" />
+</p>
+
 # JetPack — Local Compute & Native App Orchestrator
 
 **JetPack** is a lightweight cross-platform desktop orchestrator (~5–10 MB native tray agent) that lets web applications run local AI, media, and compute workloads at native GPU speed—**without virtual machines, Docker, WSL2, or administrator privileges**.
@@ -74,10 +78,17 @@ Each release package includes the `JetPack` background tray agent with the embed
    ```
 4. Open **Control Center** from the tray menu or navigate to `http://127.0.0.1:9470`.
 
-### Tray Controls
+### Tray Controls & Custom Icon Override
+- **Tray Visual States**: Monochrome white template silhouette when `Idle` (automatically adapting light/dark contrast via macOS template mode), smooth `100ms` sinusoidal color pulse (`#EA580C` ↔ `#FBBF24` over a static silhouette) when workers or OCI pulls are `Active`, and solid crimson (`#EF4444`) on `Error`.
+- **Custom Tray Icon Override**: Place a transparent RGBA or Grayscale+Alpha PNG (`<= 256x256` px, `<= 256 KiB`) at `<JETPACK_HOME>/config/tray-icon.png` and restart the daemon to use a custom monochrome silhouette with full dynamic state tinting. Invalid or oversized files fall back safely to the embedded template.
 - **Open Control Center** / **Open App Store**: Manage installed apps, GPU hardware telemetry, and running workers.
 - **Launch at Login**: Toggle unprivileged user-space autostart at login.
 - **Open Logs** / **Export Diagnostics...**: Inspect `daemon.log` or export a sanitized `.zip` diagnostic bundle.
+
+### Canonical Brand & Icon Asset Paths
+- **Native Daemon & Desktop Bundles (`crates/jetpack-daemon/assets/icons/`)**: `tray-icon.png` (`64x64` monochrome tray template), `app-icon.png` (`1024x1024` macOS `.icns` master), `app-icon-256.png` (`256x256` Linux user-space `$XDG_DATA_HOME/icons/hicolor/256x256/apps/jetpack-daemon.png`), and `app-icon.ico` (multi-size Windows executable icon).
+- **Web Control Center (`web/public/`)**: `logo.webp` (`256x256`), `logo-192.png` (`192x192`), `apple-touch-icon.png` (`180x180`), and `favicon.ico` (`16`/`32`/`48` px), automatically embedded into `jetpack-daemon` via `web/dist/`.
+- **Documentation Portal (`docs/public/`)**: `logo.webp` (`256x256`), `logo.png` (`256x256`), and `favicon.ico` (`16`/`32`/`48` px).
 
 ---
 

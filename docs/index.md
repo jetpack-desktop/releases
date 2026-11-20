@@ -6,7 +6,7 @@ hero:
   text: "Native GPU Compute for Web Apps. Zero VMs."
   tagline: "A lightweight Rust tray orchestrator (~5–10 MB) bridging WebAssembly frontends to OS-sandboxed native & Python workers over encrypted zero-copy binary WebSockets."
   image:
-    src: /logo.svg
+    src: /logo.webp
     alt: JetPack Logo
   actions:
     - theme: brand
