@@ -82,6 +82,7 @@ Each release package includes the `JetPack` background tray agent with the embed
 - **Tray Visual States**: Monochrome white template silhouette when `Idle` (automatically adapting light/dark contrast via macOS template mode), smooth `100ms` sinusoidal color pulse (`#EA580C` ↔ `#FBBF24` over a static silhouette) when workers or OCI pulls are `Active`, and solid crimson (`#EF4444`) on `Error`.
 - **Custom Tray Icon Override**: Place a transparent RGBA or Grayscale+Alpha PNG (`<= 256x256` px, `<= 256 KiB`) at `<JETPACK_HOME>/config/tray-icon.png` and restart the daemon to use a custom monochrome silhouette with full dynamic state tinting. Invalid or oversized files fall back safely to the embedded template.
 - **Open Control Center** / **Open App Store**: Manage installed apps, GPU hardware telemetry, and running workers.
+- **Check for Updates...** / **Update Available**: Check `jetpack-desktop/releases` for newer builds, verify `SHA256SUMS.txt` checksums, and safely restart into the updated version (also accessible inside Control Center → **My Hardware & Security** → **JetPack Updates**).
 - **Launch at Login**: Toggle unprivileged user-space autostart at login.
 - **Open Logs** / **Export Diagnostics...**: Inspect `daemon.log` or export a sanitized `.zip` diagnostic bundle.
 
