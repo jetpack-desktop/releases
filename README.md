@@ -49,7 +49,7 @@ Before extracting or running any downloaded file, verify its SHA-256 checksum ag
 
 ## Installation & Quick Start
 
-Each release package includes the `JetPack` background tray agent with the embedded **Control Center** UI and a lightweight starter app (`examples/ffmpeg-media-converter`). Additional apps can be pulled on demand from the signed App Store inside Control Center.
+Each release package includes the `JetPack` background tray agent (`jetpack-daemon`) with the embedded **Control Center** UI, the `jetpack` developer CLI & local MCP server (`jetpack mcp`), and a lightweight starter app (`examples/ffmpeg-media-converter`). Additional apps can be pulled on demand from the signed App Store inside Control Center.
 
 ### macOS (`darwin/arm64`)
 1. Open `JetPack-macos-arm64.dmg` (or unzip `JetPack-macos-arm64.app.zip`) and drag `JetPack.app` into `/Applications` or `~/Applications`.
@@ -59,11 +59,13 @@ Each release package includes the `JetPack` background tray agent with the embed
      xattr -dr com.apple.quarantine /Applications/JetPack.app
      ```
 3. Click the JetPack menu-bar icon → **Open Control Center** (or visit `http://127.0.0.1:9470`).
+4. The `jetpack` CLI & MCP server binary is bundled at `/Applications/JetPack.app/Contents/MacOS/jetpack`.
 
 ### Windows (`windows/amd64`)
 1. Extract `JetPack-windows-x64.zip` into a user folder such as `%LOCALAPPDATA%\JetPack\`.
 2. Double-click `jetpack-daemon.exe` — it starts silently in the Windows system tray without opening a console window.
 3. Right-click the JetPack tray icon → **Open Control Center** (or visit `http://127.0.0.1:9470`).
+4. The `jetpack.exe` CLI & MCP server binary sits in the same folder (`%LOCALAPPDATA%\JetPack\jetpack.exe`).
 
 ### Linux (`linux/amd64`)
 1. Ensure GTK 3 and AppIndicator runtime libraries (`libgtk-3-0` and `libayatana-appindicator3-1` or `libappindicator3-1`) plus `bubblewrap` (`bwrap`) are installed on your distribution.
@@ -77,6 +79,7 @@ Each release package includes the `JetPack` background tray agent with the embed
    ~/.local/opt/jetpack/jetpack-daemon
    ```
 4. Open **Control Center** from the tray menu or navigate to `http://127.0.0.1:9470`.
+5. The `jetpack` CLI & MCP server binary is extracted alongside it at `~/.local/opt/jetpack/jetpack`.
 
 ### Tray Controls & Custom Icon Override
 - **Tray Visual States**: Monochrome white template silhouette when `Idle` (automatically adapting light/dark contrast via macOS template mode), smooth `100ms` sinusoidal color pulse (`#EA580C` ↔ `#FBBF24` over a static silhouette) when workers or OCI pulls are `Active`, and solid crimson (`#EF4444`) on `Error`.
@@ -99,7 +102,10 @@ JetPack ships first-class AI-Agent DX tooling across Claude Code, Cursor, Windsu
 
 - **LLM-Ready Docs (`llms.txt` & `llms-full.txt`)**: Point Cursor `@Docs` or your coding agent to `https://jetpack-desktop.github.io/llms-full.txt` (or the index at `https://jetpack-desktop.github.io/llms.txt`).
 - **AI Project Scaffolding (`jetpack init`)**: Run `jetpack init ./my-app --template fullstack` (or `jetpack-daemon --init-app ./my-app`) to generate `AGENTS.md`, regular-file `CLAUDE.md`, `.cursor/rules/jetpack.mdc`, and `.agents/skills/{create-jetpack-worker,add-binary-opcode,debug-pairing}/SKILL.md`.
-- **Built-In Local MCP Server (`jetpack mcp`)**: Connect `jetpack mcp` over `stdio` to expose `search_docs`, `get_daemon_status`, `read_worker_logs`, `validate_manifest`, and `scaffold_app`.
+- **Built-In Local MCP Server (`jetpack mcp`)**: Connect the bundled `jetpack` binary over `stdio` to expose `search_docs`, `get_daemon_status`, `read_worker_logs`, `validate_manifest`, and `scaffold_app`:
+  - **macOS**: `"command": "/Applications/JetPack.app/Contents/MacOS/jetpack", "args": ["mcp"]`
+  - **Windows**: `"command": "C:\\Users\\<you>\\AppData\\Local\\JetPack\\jetpack.exe", "args": ["mcp"]`
+  - **Linux**: `"command": "/home/<you>/.local/opt/jetpack/jetpack", "args": ["mcp"]`
 - **Typed Worker Contracts (`jetpack codegen`)**: Run `jetpack codegen --worker worker.py --out src/jetpack-env.d.ts` and instantiate `new JetPackAppClient<JetPackOpcodeMap>()` for compile-time verification of opcodes, metadata shapes, and binary `Uint8Array` payloads.
 
 ---
