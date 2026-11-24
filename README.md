@@ -91,7 +91,7 @@ Each release package includes the `JetPack` background tray agent (`jetpack-daem
 
 ### Canonical Brand & Icon Asset Paths
 - **Native Daemon & Desktop Bundles (`crates/jetpack-daemon/assets/icons/`)**: `tray-icon.png` (`64x64` monochrome tray template), `app-icon.png` (`1024x1024` macOS `.icns` master), `app-icon-256.png` (`256x256` Linux user-space `$XDG_DATA_HOME/icons/hicolor/256x256/apps/jetpack-daemon.png`), and `app-icon.ico` (multi-size Windows executable icon).
-- **Web Control Center (`web/public/`)**: `logo.webp` (`256x256`), `logo-192.png` (`192x192`), `apple-touch-icon.png` (`180x180`), and `favicon.ico` (`16`/`32`/`48` px), automatically embedded into `jetpack-daemon` via `web/dist/`.
+- **Web Control Center (`web/public/`)**: `logo.webp` (`256x256`), `logo-192.png` (`192x192`), `apple-touch-icon.png` (`180x180`), `favicon.ico` (`16`/`32`/`48` px), and `pattern-bg.svg` (seamless tileable line-art backdrop), automatically embedded into `jetpack-daemon` via `web/dist/`.
 - **Documentation Portal (`docs/public/`)**: `logo.webp` (`256x256`), `logo.png` (`256x256`), and `favicon.ico` (`16`/`32`/`48` px).
 
 ---
