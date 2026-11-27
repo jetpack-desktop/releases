@@ -124,5 +124,3 @@ Full platform, security, and SDK documentation is included in the [`docs/`](./do
 - [Python Worker SDK](./docs/sdk/worker/python-sdk.md)
 - [App Manifest Reference (app.toml)](./docs/publishing/manifest-reference.md)
 - [CLI Tools Reference](./docs/publishing/cli-tools.md)
-
-[![Donate](https://codingbro.dev/donate-button.svg)](https://codingbro.dev/donate)
