@@ -120,7 +120,7 @@ Full platform, security, and SDK documentation is included in the [`docs/`](./do
 - [AI Agents & MCP Integration](./docs/guide/ai-agents.md)
 - [Security Overview & Threat Model](./docs/security/overview.md)
 - [OS Kernel Sandboxing](./docs/security/os-sandboxing.md)
-- [Frontend SDK Quickstart (@jetpack/client)](./docs/sdk/frontend/quickstart.md)
+- [Frontend SDK Quickstart (@jetpack-desktop/client)](./docs/sdk/frontend/quickstart.md)
 - [Python Worker SDK](./docs/sdk/worker/python-sdk.md)
 - [App Manifest Reference (app.toml)](./docs/publishing/manifest-reference.md)
 - [CLI Tools Reference](./docs/publishing/cli-tools.md)
